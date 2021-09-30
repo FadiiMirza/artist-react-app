@@ -18,6 +18,7 @@ const SearchBar = () => {
               type="text"
               className="form-control"
               value={artist}
+              data-search-testid="search"
               onChange={(event) => {
                 if (!event.target?.value) {
                   history.push({
