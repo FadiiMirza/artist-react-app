@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+/* ===== Fonts Section Starts Here ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+/* ===== Fonts Section Ends Here ===== */
+
+/* ===== Global Styling Starts Here ===== */
+body {
+  font-family: "Poppins", sans-serif !important;
+  height: 100%;
+  background-color: #f8f9fa !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ===== Global Styling Ends Here ===== */
+
+/* ===== Search Section Starts Here ===== */
+.search-wrapper input[type="text"] {
+  border: none;
+  border-radius: 0;
+  padding: 2rem 4rem 2rem 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.icon-wrapper {
+  position: absolute;
+  top: 0;
+  right: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-wrapper svg {
+  font-size: 1rem;
+  background-color: #fff;
+  height: 64px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.search-wrapper input:focus {
+  box-shadow: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-wrapper input:focus i {
+  display: block;
+}
+
+/* ===== Search Section Ends Here ===== */
+
+/* ===== Result Section Starts Here ===== */
+.result-message {
+  font-weight: 400;
+}
+
+.result-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fefefe;
+  padding: 1rem;
+  word-break: break-all;
+}
+
+.artist-profile {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+}
+
+.result-info-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 0.75rem;
+}
+
+.result-info-wrapper h4 {
+  text-transform: capitalize;
+  font-size: 1.25rem;
+  color: #212529;
+}
+
+.result-info-wrapper a {
+  color: #828282;
+  font-size: 0.75rem;
+}
+/* ===== Result Section Ends Here ===== */
+
+/* ===== Events Section Starts Here ===== */
+.back-to-result {
+  cursor: pointer;
+}
+
+.event-wrapper {
+  background-color: #fefefe;
+  padding: 1rem;
+}
+
+.event-wrapper h4 {
+  border-bottom: 2px solid #828282;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+
+.event-wrapper h5,
+.event-wrapper h6 {
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.event-wrapper h6 {
+  color: #828282;
 }
