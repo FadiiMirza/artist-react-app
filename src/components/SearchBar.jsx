@@ -1,12 +1,11 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router";
-import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const SearchBar = () => {
   const search = useLocation().search;
-  const artist = new URLSearchParams(search).get("artist") || null;
+  const artist = new URLSearchParams(search).get("artist") || '';
   const history = useHistory();
  
   return (
