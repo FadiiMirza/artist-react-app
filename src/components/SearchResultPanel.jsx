@@ -6,20 +6,20 @@ import { fetchArtists } from "../api/artist";
 const SearchResutlCard = ({ image_url, facebook_page_url, name }) => {
   return (
     <div className="col-lg-4 mb-4">
-      <Link className="text-decoration-none"
-        to={{
-          pathname: `/artist/${name}`,
-          state: { image_url, facebook_page_url, name },
-        }}
-      >
-        <div className="result-wrapper">
-          <img src={image_url} alt="Profile Image" className="artist-profile" />
-          <div className="result-info-wrapper">
+      <div className="result-wrapper">
+        <img src={image_url} alt="Profile Image" className="artist-profile" />
+        <div className="result-info-wrapper">
+          <Link className="text-decoration-none"
+            to={{
+              pathname: `/artist/${name}`,
+              state: { image_url, facebook_page_url, name },
+            }}
+          >
             <h4 className="mb-0">{name}</h4>
-            <a href={facebook_page_url}>{facebook_page_url}</a>
-          </div>
+          </Link>
+          <a href={facebook_page_url}>{facebook_page_url}</a>
         </div>
-      </Link>
+      </div>
     </div>
   );
 };
@@ -28,7 +28,7 @@ const SearchResultPanel = () => {
   const search = useLocation().search;
   const [artists, setArtists] = useState([]);
   const [loading, setLoading] = useState(false);
-  const artist = new URLSearchParams(search).get("artist") || null;
+  const artist = new URLSearchParams(search).get("artist") || "";
   const mountEffect = () => {
     const _fetchArtists = async () => {
       try {
@@ -42,6 +42,8 @@ const SearchResultPanel = () => {
               ...new Map(_artists.map((item) => [item["id"], item])).values(),
             ];
             setArtists(distinctItems);
+          } else {
+            setArtists([]);
           }
         } else {
           setArtists([]);
@@ -62,9 +64,10 @@ const SearchResultPanel = () => {
       </span>
       {loading && "loading..."}
       <div className="row mt-3">
-        {artists?.map((x) => {
+        {artists?.map((x, index) => {
           return (
             <SearchResutlCard
+              key={`result_${index}`}
               image_url={x.image_url}
               facebook_page_url={x.facebook_page_url}
               name={x?.name}
